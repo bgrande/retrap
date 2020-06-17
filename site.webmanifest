@@ -1,0 +1,12 @@
+{
+  "short_name": "retrap",
+  "name": "recruiting questionnaire",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#8DD8C4",
+  "theme_color": "#68CAB0"
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Let's save some recuriting time and see if we could match</title>
+    <meta name="description" content="On this page I'll ask you some recruiting related questions so we can see if we might match">
+    <meta name="keywords" content="recruiting, retrap, time-saving">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto" as="style">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto?display=swap" media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" href="css/normalize.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+
+    <meta name="theme-color" content="#68CAB0">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div class="container">
+    <h1 class="saver-box" id="js-saver-box">TimeSaver!</h1>
+    <main id="questions">
+      <div class="homepage">
+        <a href="https://YOURDOMAIN">about me</a>
+      </div>
+      <h2 class="title" id="js-title">To save us some time I have prepared <span id="js-question-count" aria-label="Number of Questions">a few</span> questions</h2>
+      <div id="js-content">
+        <div class="error-text hidden" id="js-error"></div>
+        <div id="js-introduction">
+          <p>
+            Your time is valuable! Mine is as well!
+              <a href="#readmore" id="js-read-more" aria-hidden="true">read the reasoning!</a>
+          </p>
+          <p class="read-more hidden" aria-hidden="false">
+            Cold-writing potential candidates can be very time consuming.
+            Even when using very personalized messages you can't be sure about getting an answer let alone the person might be interested.
+          </p>
+          <p class="read-more hidden" aria-hidden="false">
+            I used to answer all requests until recently. It just consumed too much of my time even when using templates.
+          </p>
+          <p class="read-more hidden" aria-hidden="false">
+            So I thought having some information in advance might make it easier for both sides.
+            You can see if there's at least a chance getting to me. And I don't have to answer so many requests anymore.
+          </p>
+          <p class="important">
+            To save us some time you could start answering a few questions which translate to my current preferences.
+            If I might be interested or not you'll know after answering all the questions.
+          </p>
+        </div>
+
+        <ol class="question-list hidden" id="js-question-list" aria-label="List of questions">
+        </ol>
+
+        <div class="answer-text hidden" id="js-answer" aria-label="Answertext">
+        </div>
+      </div>
+      <div id="controls">
+        <div class="control back hidden" aria-hidden="true">
+          <button title="Back" id="back" aria-label="go back to last question">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            back
+          </button>
+        </div>
+
+        <div class="control send hidden" aria-hidden="true">
+          <button title="Send" id="send" aria-label="send the answered questions">
+            send
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+
+        <div class="control start" aria-hidden="false">
+          <button title="Start" id="start" aria-label="start the questions">
+            start
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </button>
+        </div>
+
+        <div class="control forward hidden" aria-hidden="true">
+          <button title="Continue" id="forward">
+            continue
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

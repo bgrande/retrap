@@ -1,0 +1,545 @@
+/*! HTML5 Boilerplate v7.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+:root {
+  --default-font-color: #587471;
+  --default-background-color: #B0E3D6;
+  --container-background-color: #68CAB0;
+  --light-font-color: #D8F3EC;
+  --error-font-color: #587471;
+  --grey-background-color: #ccc;
+}
+
+html {
+  color: var(--default-font-color);
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-kerning: normal;
+}
+
+html, body {
+    width: 100%;
+    height: calc(100% - 1em);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--default-background-color);
+  /*background-image: linear-gradient(to top, #03f7ff 0, #03c4ff 100%);*/
+  font-family: -apple-system, system-ui, ".SFNSText-Regular", BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", "Lucida Grande", "Open Sans", "Sans Pro", "Liberation Sans", Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: var(--default-background-color);
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--default-background-color);
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    visibility: hidden;
+}
+
+.show {
+    transition-property: top, left;
+    transition-duration: 3000ms;
+    transition-timing-function: ease-in-out;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+* Extends the .sr-only class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.homepage {
+    position: relative;
+    width: 150px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--default-font-color)
+}
+
+.read-more {
+    top: 0;
+    left: 0;
+    visibility: visible;
+    position: relative;
+    transition-property: left;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+}
+
+.saver-box {
+  background-color: var(--default-font-color);
+  color: var(--light-font-color);
+  text-align: center;
+  border-radius: 2em;
+  padding: 2px;
+  z-index: 9;
+  margin: .5em auto 0 auto;
+  width: 240px;
+}
+
+#questions {
+  padding: 1em;
+  position: relative;
+  color: var(--default-font-color);
+}
+
+.introduction {
+  text-align: left;
+}
+
+.important {
+  font-weight: bold;
+}
+
+.question-list li {
+  padding: .5em;
+}
+
+.answer-text {
+  margin: 2em auto;
+  width: 50%;
+  height: auto;
+  font-weight: bold;
+}
+
+.error-text {
+  margin: 2em auto;
+  width: 50%;
+  color: var(--error-font-color);
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 10px 10px 10px 10px;
+  text-align: center;
+  font-weight: bold;
+  padding: .5em;
+}
+
+.container {
+    width: 100%;
+}
+
+#controls {
+  position: absolute;
+  display: flex;
+  width: calc(100% - 2em);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: .5em;
+}
+
+#controls svg {
+  color: var(--default-font-color);
+}
+
+#controls button {
+  color: var(--default-font-color);
+  padding: .5em;
+  font-weight: bold;
+  border: 0;
+  width: 8em;
+  background-image: linear-gradient(to top, var(--light-font-color) 0, var(--default-background-color) 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+  border-radius: 30px 30px 30px 30px;
+  cursor: pointer;
+}
+
+#controls button:hover {
+    color: var(--light-font-color);
+    background-image: linear-gradient(to top, var(--default-font-color) 0, var(--container-background-color) 100%);
+}
+
+#controls button:hover svg {
+    color: var(--light-font-color);
+}
+
+#controls .control {
+    left: 0;
+    top: 0;
+    position: relative;
+    transition-property: top;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in;
+}
+
+#controls .forward, #controls .send {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#controls .start {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls .back {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Customize the label (the container) */
+.question-list label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.question-list label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--light-font-color);
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.question-list label:hover input ~ .checkmark {
+    background-color: var(--grey-background-color);
+}
+
+/* When the radio button is checked, add a blue background */
+.question-list label input:checked ~ .checkmark {
+    background-color: var(--default-font-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.question-list label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.question-list label .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* ==========================================================================
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 769px) {
+    .container {
+        position: relative;
+        top: 50%;
+        margin: 0 auto;
+        width: 700px;
+        height: 1em;
+        left: -1em;
+    }
+
+    .homepage {
+        position: absolute;
+        right: 2em;
+        text-align: right;
+    }
+
+  .saver-box {
+    position: relative;
+    top: -7.2em;
+  }
+
+  #controls {
+    bottom: 0;
+  }
+
+  #questions {
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 30em));*/
+    position: relative;
+    top: -30em;
+    transform: translate(0, calc(-50% + 30em));
+    height: 30em;
+    width: 700px;
+    background-color: var(--container-background-color);
+    /*background-image: linear-gradient(to top, #03f7ff 0, #03c4ff 100%);*/
+    /*background-color:#E0E5EC;*/
+    /*box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);*/
+    border-radius: 2em;
+    box-shadow: 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+    border: 1px solid transparent;
+    color: var(--light-font-color);
+  }
+
+  .title {
+    margin-top: 1.6em;
+  }
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+     * Printing Tables:
+     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+

@@ -1,0 +1,28 @@
+{
+  "v": "0.0.1",
+  "lang": "en-EN",
+  "show_email": true,
+  "contact": "recruit@bgrande.de",
+  "answers": [
+    {
+      "text": "I might be interested, contact me!",
+      "threshold_max": 79,
+      "threshold_min": 56
+    },
+    {
+      "text": "Sounds very interesting, please contact me!",
+      "threshold_max": 100,
+      "threshold_min": 80
+    },
+    {
+      "text": "Sorry but it sounds not that interesting to me!",
+      "threshold_max": 55,
+      "threshold_min": 41
+    },
+    {
+      "text": "Sorry but I'm definitely not interested!",
+      "threshold_max": 40,
+      "threshold_min": 0
+    }
+  ]
+}
