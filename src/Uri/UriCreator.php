@@ -12,14 +12,14 @@ class UriCreator {
     public function createUri(string $filePath): string {
         $uri = 'http';
 
-        if ($this->server['HTTPS'] === 'on') {
+        if ((isset($this->server['HTTPS']) && $this->server['HTTPS'] === 'on') || $this->server['REQUEST_URI']) {
             $uri .= 's';
         }
 
         $uri .= '://' . $this->server['HTTP_HOST'];
 
         if ($this->server['REQUEST_URI'] !== $this->server['SCRIPT_NAME']) {
-           $uri .= $this->server['REQUEST_URI'];
+            $uri .= $this->server['REQUEST_URI'];
         }
 
         $uri = str_replace($this->server['SCRIPT_NAME'], '', $uri);
