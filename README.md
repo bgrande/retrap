@@ -29,12 +29,14 @@ The backend receiving the answers is just a simple script receiving and checking
 Therefore, no additional framework and libraries here as well.
 
 ## How To use it
-1) At first rename the following files:
+1) At first rename/copy the following files:
 - `/index.dist.html` to `/index.html`
+- `/css/main.dist.css` to `/css/main.css`
 - `/data/config.dist.php` to `/data/config.php`
 - `/data/q/en/question.dist.json` to `/data/q/en/question.json`
 2) Then adjust the contents of these files like you want:
 - `/index.html`: adjust the link `https://YOURDOMAIN` pointing to your domain (or remove it)
+- `/css/main.css`: adjust colors etc. for your needs
 - `/data/config.php`: adjust the parameters `email_address` to your email address and `send_mail` to `true` or `false` depending on if you want to get an email if there was a new entry.
 - `/data/q/en/question.json`: adjust your questions and remove/add what you like to ask there
 3) Upload to a webspace supporting php
