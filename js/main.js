@@ -227,6 +227,12 @@ const calculateLowestPossible = function calculateLowestPossible() {
     return lowestPossible;
 };
 
+const stripHTML = function stripHTML(value) {
+    let stripped = document.createElement('div');
+    stripped.innerHTML = value;
+    return stripped.textContent;
+};
+
 (function() {
     localStorage.setItem(FROM_KEY, '');
 
@@ -235,7 +241,8 @@ const calculateLowestPossible = function calculateLowestPossible() {
         const params = new Map(query.slice(1).split('&').map(value => value.split('=')));
 
         if (params.has('from')) {
-            localStorage.setItem(FROM_KEY, params.get('from'));
+            let from = params.get('from');
+            localStorage.setItem(FROM_KEY, stripHTML(from).substr(0, 10));
         }
     }
 
