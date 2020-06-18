@@ -53,7 +53,7 @@ if ($entityBody) {
         }
 
         if ($objectCalc->{ANSWER_TEXT_KEY}) {
-            $answerText = $objectCalc->{ANSWER_TEXT_KEY};
+            $answerText = htmlentities(strip_tags($objectCalc->{ANSWER_TEXT_KEY}));
         }
 
         if ($objectCalc->{ANSWER_RESULT_KEY}) {
@@ -62,7 +62,7 @@ if ($entityBody) {
     }
 
     if (isset($objectified->{FROM_KEY})) {
-        $textFrom = $objectified->{FROM_KEY};
+        $textFrom = htmlentities(strip_tags($objectified->{FROM_KEY}));
     }
 }
 
