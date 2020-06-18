@@ -31,7 +31,7 @@ Therefore, no additional framework and libraries here as well.
 ## How To use it
 1) At first rename the following files:
 - `/index.dist.html` to `/index.html`
-- `/data/config.dist.php` to `/data/config.php` 
+- `/data/config.dist.php` to `/data/config.php`
 - `/data/q/en/question.dist.json` to `/data/q/en/question.json`
 2) Then adjust the contents of these files like you want:
 - `/index.html`: adjust the link `https://YOURDOMAIN` pointing to your domain (or remove it)

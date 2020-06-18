@@ -44,9 +44,7 @@
 - improve symbols
 
 # 0.4.0
-- create a link at my personal website (maybe thatsme feature)
-- decide for license (MIT?)
-- add repo to github and push (via new repo)
++ github
 
 # 0.5.0
 - combine back/forward/last/first logic
