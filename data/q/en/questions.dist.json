@@ -89,6 +89,23 @@
         }
       ],
       "weight": 2
+    },
+    {
+      "question": "Do you want to leave your contact details?",
+      "optional": true,
+      "answers": [
+        {
+          "value": 0,
+          "text": "Name",
+          "type": "text"
+        },
+        {
+          "value": 1,
+          "text": "E-Mail",
+          "type": "email"
+        }
+      ],
+      "weight": 0
     }
   ]
 }

@@ -97,23 +97,34 @@ async function sendAnswers() {
 }
 
 const createAnswerMarkup = function createAnswerMarkup(question, questionCount) {
-  let listOptions = '',
-      checkedValue,
-      answers = JSON.parse(localStorage.getItem(ANSWER_KEY)),
-      answerKey = ANSWER_PREFIX + questionCount;
+      const defaultType = 'radio';
 
-  if (answers.hasOwnProperty(answerKey)) {
-      checkedValue = parseInt(answers[answerKey]);
-  }
+      let listOptions = '',
+          checkedValue,
+          answers = JSON.parse(localStorage.getItem(ANSWER_KEY)),
+          answerKey = ANSWER_PREFIX + questionCount,
+          allowedTypes = ['text', 'email', 'textarea', defaultType];
 
+      if (answers.hasOwnProperty(answerKey)) {
+          checkedValue = parseInt(answers[answerKey]);
+      }
 
-  question.answers.forEach(function (value) {
-    let checked = (checkedValue === value.value) ? 'checked' : '';
+      question.answers.forEach(function (value) {
+        let checked = (checkedValue === value.value) ? 'checked' : '',
+            type = value.type || defaultType,
+            valueText = type === defaultType ? value.value : '',
+            classes = type === defaultType ? ' simple' : '',
+            placeholder = type === defaultType ? '' : 'placeholder="' + value.text + '"',
+            appendix = type === defaultType ? '<span class="checkmark"></span></label>' : '';
 
-    listOptions += `<li><label><input name="${answerKey}" value="${value.value}" type="radio" class="answer" ${checked}> ${value.text}<span class="checkmark"></span></label></li>\n`;
-  });
+        if (!allowedTypes.includes(type)) {
+            type = defaultType;
+        }
 
-  return listOptions;
+        listOptions += `<li><label><input name="${answerKey}" value="${valueText}" type="${type}" class="answer${classes}" ${placeholder} ${checked}> ${value.text}${appendix}</li>\n`;
+      });
+
+      return listOptions;
 };
 
 const updateSaverBox = function updateSaverBox(element, questions, currentQuestionNumber) {
@@ -170,18 +181,24 @@ const saveAnswer = function saveAnswer(currentQuestionNumber) {
 };
 
 const hasAnswer = function hasAnswer(currentQuestionNumber) {
-  const answerName = ANSWER_PREFIX + currentQuestionNumber;
+    const answerName = ANSWER_PREFIX + currentQuestionNumber;
+    const questions  = JSON.parse(localStorage.getItem(QUESTION_KEY));
 
-  let answerElements = document.getElementsByName(answerName), result = false;
+    console.log(questions, questions[currentQuestionNumber]);
 
-  answerElements.forEach(function (element) {
-    if (element.checked) {
-      result = true;
-      return;
+    if (questions.hasOwnProperty(currentQuestionNumber) && questions[currentQuestionNumber].hasOwnProperty('optional') && questions[currentQuestionNumber]['optional'] === true) {
+        return true;
     }
-  });
 
-  return result;
+    let answerElements = document.getElementsByName(answerName), result = false;
+
+    for (let i in answerElements) {
+        if (answerElements.hasOwnProperty(i) && (answerElements[i].checked || answerElements[i].value.length > 1)) {
+            return true;
+        }
+    }
+
+    return false;
 };
 
 const calculateResult = function calculateResult() {
@@ -190,9 +207,8 @@ const calculateResult = function calculateResult() {
       sum = 0;
 
   for (let answer in savedAnswers) {
-    if (savedAnswers.hasOwnProperty(answer)) {
+    if (savedAnswers.hasOwnProperty(answer) && !isNaN(parseInt(savedAnswers[answer]))) {
       let split = answer.split('-');
-
       sum += parseInt(savedAnswers[answer]) * parseInt(savedQuestions[parseInt(split[(split.length - 1)])].weight);
     }
   }
