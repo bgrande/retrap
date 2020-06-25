@@ -184,8 +184,6 @@ const hasAnswer = function hasAnswer(currentQuestionNumber) {
     const answerName = ANSWER_PREFIX + currentQuestionNumber;
     const questions  = JSON.parse(localStorage.getItem(QUESTION_KEY));
 
-    console.log(questions, questions[currentQuestionNumber]);
-
     if (questions.hasOwnProperty(currentQuestionNumber) && questions[currentQuestionNumber].hasOwnProperty('optional') && questions[currentQuestionNumber]['optional'] === true) {
         return true;
     }
