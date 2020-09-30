@@ -41,4 +41,4 @@ Therefore, no additional framework and libraries here as well.
     - `/css/main.css`: adjust colors etc. for your needs
     - `/data/config.php`: adjust the parameters `email_address` to your email address and `send_mail` to `true` or `false` depending on if you want to get an email if there was a new entry.
     - `/data/q/en/question.json`: adjust your questions and remove/add what you like to ask there
-3. Upload to a webspace supporting php 7.4
+3. Upload to a webspace supporting php 7.2 or higher
