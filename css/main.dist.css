@@ -216,11 +216,19 @@ textarea {
   clear: both;
 }
 
-.homepage {
+.about {
     position: relative;
-    width: 150px;
+    margin: 1em auto;
+    width: 10em;
     text-align: center;
-    margin: 0 auto;
+}
+
+.about svg {
+    width: 1em;
+}
+
+.about a {
+    text-decoration: none;
 }
 
 a {
@@ -422,6 +430,12 @@ a {
    ========================================================================== */
 
 @media only screen and (min-width: 769px) {
+    .about {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
     .container {
         position: relative;
         top: 50%;
@@ -429,12 +443,6 @@ a {
         width: 700px;
         height: 1em;
         left: -1em;
-    }
-
-    .homepage {
-        position: absolute;
-        right: 2em;
-        text-align: right;
     }
 
   .saver-box {

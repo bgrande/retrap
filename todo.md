@@ -40,11 +40,13 @@
 + extend readme
 
 # 0.3.1
-- improve contrast
-- improve symbols
++ improve contrast
++ improve symbols
 
 # 0.4.0
 + github
++ show/fork on github
++ log anonymized IP to recognize duplicates
 
 # 0.5.0
 - combine back/forward/last/first logic
