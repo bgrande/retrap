@@ -18,7 +18,9 @@ Since with my previous projects I was bound to being very much browser backwards
 Besides, after working mainly backend for years now, I wanted to get some more experience in creating UIs, again.
 
 ### Will people use it?
-I don't know. But I want to find out. This is a tech-savvy approach so people might find this more time-consuming than I did.
+Seems like most of the recruiters used it so far. Not all of them liked it, though. However, most of them did.
+So far one recruiter pointed out he liked the tool very much wishing more people would use it. 
+Nonetheless, this is a tech-savvy approach so people might find this more time-consuming than I did.
 At least this was a project where I could try a few things and get back to keeping things simple.
 Also, training getting ideas into code and published seems to be worthwhile as well.
 
