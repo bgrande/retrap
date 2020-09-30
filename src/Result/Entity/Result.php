@@ -17,7 +17,9 @@ final class Result {
 
     public $from = '';
 
-    public function __construct(array $questions, string $resultText, int $version, int $result, string $lang, string $textFrom) {
+    public $fromId = '';
+
+    public function __construct(array $questions, string $resultText, int $version, int $result, string $lang, string $textFrom, string $fromId) {
         if (empty($questions) || $resultText === '') {
             throw new NoDataException();
         }
@@ -31,5 +33,6 @@ final class Result {
         $this->language   = $lang;
         $this->date       = $dateTime->format('c');
         $this->from       = $textFrom;
+        $this->fromId     = $fromId;
     }
 }

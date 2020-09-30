@@ -24,6 +24,7 @@ require_once __DIR__ . '/src/Result/NoDataException.php';
 require_once __DIR__ . '/src/File/EncodeName.php';
 require_once __DIR__ . '/src/Mail/Send.php';
 require_once __DIR__ . '/src/Uri/UriCreator.php';
+require_once __DIR__ . '/src/Anonymize/Anonymizer.php';
 
 $entityBody = file_get_contents('php://input');
 $result = new stdClass();
@@ -75,7 +76,10 @@ if (file_exists(QUESTION_FILE)) {
 header('Content-Type: application/json');
 
 try {
-    $writeResult = new Result($questions->{QUESTION_KEY}, $answerText, (int) $questions->v, $answerResult, $questions->lang, $textFrom);
+    $anonymize = new Anonymizer();
+    $fromId = $anonymize->anonymize($_SERVER['REMOTE_ADDR']);
+
+    $writeResult = new Result($questions->{QUESTION_KEY}, $answerText, (int) $questions->v, $answerResult, $questions->lang, $textFrom, $fromId);
     $fileNameEncoder = new EncodeName();
     $fileName = $fileNameEncoder->encode(RESULT_FILE_PATH);
 
