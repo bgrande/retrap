@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruiting requests over time</title>
+
+</head>
+<body>
+<div id="chart"></div>
+
+<script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+<script type="application/javascript">
+    const getPrefix = function getPrefix() {
+        if (location.pathname === '/') {
+            return '/';
+        }
+
+        const path = location.pathname.split('/'),
+            length = path.length;
+
+        let prefix = '/';
+
+        path.forEach(function (p, i) {
+            if (p !== '' && i < (length - 1)) {
+                prefix += p + '/';
+            }
+        });
+
+        return prefix;
+    }
+
+    function getTimeData() {
+        return fetch(getPrefix() + 'analytics.php?type=month')
+            .then(async function (response) {
+                if (response.ok) {
+                    const data = await response.json();
+                    const chart = new frappe.Chart("#chart", {
+                        title: "Recruiting Requests per month over time",
+                        data: data,
+                        type: 'bar', // axis-mixed, 'bar', 'line', 'scatter', 'pie', 'percentage'
+                        height: 250,
+                        colors: ['#7cd6fd', '#743ee2']
+                    });
+                } else {
+                    return Promise.reject(response);
+                }
+            })
+            .catch(function (error) {
+                console.warn('something went wrong: ', error);
+            });
+    }
+
+    getTimeData();
+</script>
+</body>
+</html>
