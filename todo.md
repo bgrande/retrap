@@ -45,16 +45,24 @@
 
 # 0.4.0
 + github
++ license
 + show/fork on github
 + log anonymized IP to recognize duplicates
 
 # 0.5.0
+- allow multiple answers, so we can get name and email
+- use github repo here as well
 - combine back/forward/last/first logic
-- make sure we catch the name and email of the person questioned in the end if result was interesting (another backend script)
+- make sure we catch the name and email of the person questioned in the end if result was interesting (another backend script) (or with the last question as input fields)
+    - get contact data of questionee
+    - make sure we catch the name and email of the person questioned in the end if result was interesting (another backend script)
+    - from parameter from whitelist (backend!) or only allowing a certain string length? / encode/remove html chars
+- spam protection (block write requests from same address for a few (random) minutes)
 
 # 0.6.0
 - some unit tests
 - introduce translations
+- csrf protection (although not necessary)?
 
 # 1.0.0
 - recognize state after reload and continue where the user left
