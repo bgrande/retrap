@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-require_once __DIR__ . '/boostrap.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/src/Question/AnswerUpdater.php';
 require_once __DIR__ . '/src/Result/Entity/Result.php';
 require_once __DIR__ . '/src/Result/NoDataException.php';
