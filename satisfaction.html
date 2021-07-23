@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recruiting requests over time</title>
-
+    <title>Recruiter's satisfaction of all requests</title>
 </head>
 <body>
 <div id="chart"></div>
@@ -30,16 +29,16 @@
     }
 
     function getTimeData() {
-        return fetch(getPrefix() + 'analytics.php?type=month')
+        return fetch(getPrefix() + 'analytics.php?type=satisfaction&question_id=5')
             .then(async function (response) {
                 if (response.ok) {
                     const data = await response.json();
                     const chart = new frappe.Chart("#chart", {
-                        title: "Recruiting Requests per month over time",
+                        title: "Recruiter's satisfaction of all requests",
                         data: data,
-                        type: 'bar', // axis-mixed, 'bar', 'line', 'scatter', 'pie', 'percentage'
-                        height: 300,
-                        colors: ['#7cd6fd', '#743ee2']
+                        type: 'pie', // axis-mixed, 'bar', 'line', 'scatter', 'pie', 'percentage'
+                        height: 550,
+                        colors: ['#fdec7c', '#b2fd7c', '#e23e93', '#3e9be2']
                     });
                 } else {
                     return Promise.reject(response);

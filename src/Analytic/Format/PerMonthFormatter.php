@@ -27,7 +27,7 @@ final class PerMonthFormatter implements Formatable {
         }
 
         $output = new Frappe($labels, $datasets);
-        return json_encode($output, JSON_PRETTY_PRINT);
+        return json_encode($output);
     }
 
     /**

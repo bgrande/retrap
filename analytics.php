@@ -4,33 +4,39 @@ declare(strict_types=1);
 
 ini_set('error_reporting', 'true');
 
-require_once __DIR__ . '/boostrap.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/src/File/FileGetter.php';
 require_once __DIR__ . '/src/Analytic/Format/PerMonthFormatter.php';
+require_once __DIR__ . '/src/Analytic/Format/SatisfactionFormatter.php';
+require_once __DIR__ . '/src/Analytic/Format/QuestionFormatter.php';
 require_once __DIR__ . '/src/Analytic/Analyzer.php';
 require_once __DIR__ . '/src/Analytic/Extract/PerMonthExtractor.php';
+require_once __DIR__ . '/src/Analytic/Extract/SatisfactionExtractor.php';
+require_once __DIR__ . '/src/Analytic/Extract/QuestionExtractor.php';
 
-$type = null;
-
-if (isset($_GET['type'])) {
-    $type = $_GET['type'];
+function errorResponse(string $missing) {
+    echo <<<RES
+{
+    "error": "no ${missing} set!"
 }
+RES;
+    exit;
+}
+
+$type = $_GET['type'] ?? null;
+$questionId = $_GET['question_id'] ?? null;
 
 header('Content-Type: application/json');
 
 $getter = new FileGetter();
 
 if (!$type) {
-    echo <<<RES
-{
-    'error': 'no type set!'
-}
-RES;
-    exit;
+    errorResponse('type');
 }
 
 switch ($type) {
     case 'month':
+    case 'time':
         $formatter = new PerMonthFormatter();
         $extractor = new PerMonthExtractor();
         break;
@@ -38,10 +44,16 @@ switch ($type) {
         // @todo requests per day of week
         break;
     case 'satisfaction':
-        // @todo requests with satisfaction levels
+        if (!$questionId) {
+            errorResponse('question_id');
+        }
+
+        $formatter = new SatisfactionFormatter();
+        $extractor = new SatisfactionExtractor((int) $questionId);
         break;
-    case 'question_X':
-        // @todo request answers for different question
+    case 'questions':
+        $formatter = new QuestionFormatter();
+        $extractor = new QuestionExtractor(true);
         break;
 }
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruiter's satisfaction of all requests</title>
+</head>
+<body>
+<div id="charts">
+
+</div>
+
+<script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+<script type="application/javascript">
+    const getPrefix = function getPrefix() {
+        if (location.pathname === '/') {
+            return '/';
+        }
+
+        const path = location.pathname.split('/'),
+            length = path.length;
+
+        let prefix = '/';
+
+        path.forEach(function (p, i) {
+            if (p !== '' && i < (length - 1)) {
+                prefix += p + '/';
+            }
+        });
+
+        return prefix;
+    }
+
+    function getTimeData() {
+        return fetch(getPrefix() + 'analytics.php?type=questions')
+            .then(async function (response) {
+                if (response.ok) {
+                    const data = await response.json();
+
+                    for (let i = 0, l = data.length; i < l; i++) {
+                        if (!data.hasOwnProperty(i)) {
+                            continue;
+                        }
+
+                        const id = 'chart' + i;
+                        const current = data[i];
+                        const container = document.getElementById('charts');
+
+                        const newElement = document.createElement('div');
+                        newElement.id = id;
+                        container.append(newElement);
+
+                        const chart = new frappe.Chart("#" + id, {
+                            title: current.datasets[0].name,
+                            data: current,
+                            type: 'percentage', // axis-mixed, 'bar', 'line', 'scatter', 'pie', 'percentage'
+                            height: 150,
+                            colors: ['#fdec7c', '#b2fd7c', '#e23e93', '#3e9be2']
+                        });
+                    }
+
+                } else {
+                    return Promise.reject(response);
+                }
+            })
+            .catch(function (error) {
+                console.warn('something went wrong: ', error);
+            });
+    }
+
+    getTimeData();
+</script>
+</body>
+</html>
