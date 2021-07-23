@@ -14,7 +14,8 @@ Although it sounds a bit harsh in regard to recruiters (well, at least to some o
 This app is supposed to be some way of filtering out incoming recruiting requests.
 As probably many developers I found some preferred settings regarding work,
 and it just wouldn't make sense connecting with companies or recruiters whose vision and guidelines differ in too many aspects.
-Since with my previous projects I was bound to being very much browser backwards compatible I wanted to test some features without having to take care of older browsers.
+Since with my previous projects I was bound to being very much browser backwards compatible,
+I wanted to test some features without having to take care of older browsers.
 Besides, after working mainly backend for years now, I wanted to get some more experience in creating UIs, again.
 
 ### Will people use it?
@@ -42,3 +43,11 @@ Therefore, no additional framework and libraries here as well.
     - `/data/config.php`: adjust the parameters `email_address` to your email address and `send_mail` to `true` or `false` depending on if you want to get an email if there was a new entry.
     - `/data/q/en/question.json`: adjust your questions and remove/add what you like to ask there
 3. Upload to a webspace supporting php 7.2 or higher
+
+
+## Analytics
+Using [Frappe Charts](https://frappe.io/) for the frontend there will be a few analytic insights on the usage, answers and so on.
+Currently implemented:
+- `time.html` -> will show you different time related statistics about the requests like requests per month, per year, per day of week.
+- `satisfaction.html` -> will show you how helpful the recruiters thought this questionnaire was
+- `questions.html` -> overview over the answer distribution for all questions over time
