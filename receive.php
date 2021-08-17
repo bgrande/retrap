@@ -15,7 +15,7 @@ $entityBody = file_get_contents('php://input');
 $result = new stdClass();
 
 $answerText = '';
-$answerResult = '';
+$answerResult = 0;
 $textFrom = '';
 $objectAnswers = null;
 $questions = null;
@@ -42,7 +42,7 @@ if ($entityBody) {
             $answerText = htmlentities(strip_tags($objectCalc->{ANSWER_TEXT_KEY}));
         }
 
-        if ($objectCalc->{ANSWER_RESULT_KEY}) {
+        if ($objectCalc->{ANSWER_RESULT_KEY} || $objectCalc->{ANSWER_RESULT_KEY} === 0) {
             $answerResult = (int) $objectCalc->{ANSWER_RESULT_KEY};
         }
     }
