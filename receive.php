@@ -11,6 +11,11 @@ require_once __DIR__ . '/src/Mail/Send.php';
 require_once __DIR__ . '/src/Uri/UriCreator.php';
 require_once __DIR__ . '/src/Anonymize/Anonymizer.php';
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo 'No data received!';
+    exit;
+}
+
 $entityBody = file_get_contents('php://input');
 $result = new stdClass();
 
