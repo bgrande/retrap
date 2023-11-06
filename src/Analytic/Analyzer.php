@@ -7,17 +7,13 @@ require_once __DIR__ . '/Format/Formatable.php';
 require_once __DIR__ . '/Format/PerMonthFormatter.php';
 
 final class Analyzer {
-    /** @var FileGetter */
-    private $fileGetter;
+    private FileGetter $fileGetter;
 
-    /** @var Formatable */
-    private $formatter;
+    private Formatable $formatter;
 
-    /** @var Extractable */
-    private $extractor;
+    private Extractable $extractor;
 
-    /** @var string */
-    private $responsePath;
+    private string $responsePath;
 
     public function __construct(FileGetter $fileGetter, Formatable $formatter, Extractable $extractor, string $responsePath) {
         $this->fileGetter = $fileGetter;
@@ -26,6 +22,9 @@ final class Analyzer {
         $this->responsePath = $responsePath;
     }
 
+    /**
+     * @throws JsonException
+     */
     public function compute(): string {
         $files = $this->fileGetter->get($this->responsePath);
         $contentObjects = $this->getAsObjects($files);
@@ -33,16 +32,12 @@ final class Analyzer {
         return $this->formatter->format($this->extractor->extract($contentObjects));
     }
 
-    /**
-     * @param array $files
-     * @return array
-     */
     private function getAsObjects(array $files): array {
         $contentObjects = [];
 
         foreach ($files as $filePath) {
             $fileContent = file_get_contents($filePath);
-            $contentObject = json_decode($fileContent, false);
+            $contentObject = json_decode($fileContent, false, 512, JSON_THROW_ON_ERROR);
             $contentObjects[] = $contentObject;
         }
 

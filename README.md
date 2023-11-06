@@ -31,6 +31,11 @@ So you won't find any REACT in here. As well as other frameworks or libraries ev
 The backend receiving the answers is just a simple script receiving and checking the frontend's data and writing it into a json file.
 Therefore, no additional framework and libraries here as well.
 
+## Requirements
+1. a webserver or webhosting
+2. php8.1 or higher
+
+
 ## How To use it
 1. At first rename/copy the following files:
     - `/index.dist.html` to `/index.html`

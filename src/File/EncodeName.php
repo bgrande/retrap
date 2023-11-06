@@ -7,7 +7,7 @@ final class EncodeName {
 
     private const MAX_COUNT = 3;
 
-    private $counter = 0;
+    private int $counter = 0;
 
     public function encode(string $path): string {
         try {

@@ -7,7 +7,7 @@ require_once __DIR__ . '/Extractable.php';
 final class QuestionExtractor implements Extractable {
     private const NAME = 'Question';
 
-    private $useIdFallback;
+    private bool $useIdFallback;
 
     public function __construct(bool $useIdFallback = false) {
         $this->useIdFallback = $useIdFallback;

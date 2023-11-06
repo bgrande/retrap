@@ -8,8 +8,7 @@ final class SatisfactionExtractor implements Extractable {
     private const NAME = 'Satisfaction';
     private const FALLBACK_QUESTION_TEXT = 'Were these questions helpful?';
 
-    /** @var int */
-    private $satisfactionQuestionId;
+    private int $satisfactionQuestionId;
 
     public function __construct(int $questionId) {
         $this->satisfactionQuestionId = $questionId;

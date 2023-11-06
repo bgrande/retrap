@@ -3,8 +3,7 @@
 declare(strict_types = 1);
 
 class Send {
-    /** @var array */
-    private $config;
+    private array $config;
 
     public function __construct(array $config) {
         $this->config = $config;

@@ -14,9 +14,6 @@ final class Anonymizer {
 	 * So we can still create the same hash for the same IP address
 	 * but it's more difficult to reproduce the original IP
 	 * (you can only do that with running this script on a known set of IP addresses).
-	 *
-	 * @param string $value
-	 * @return string
 	 */
 	public function anonymize(string $value): string {
 		$useRandom = $this->getRandoms($value);
@@ -31,10 +28,6 @@ final class Anonymizer {
 		return sha1($newValue);
 	}
 
-	/**
-	 * @param string $value
-	 * @return array
-	 */
 	private function getRandoms(string $value): array {
 		$sha1Original = sha1($value);
 		$useRandom = [];

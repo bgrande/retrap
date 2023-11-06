@@ -2,26 +2,28 @@
 
 declare(strict_types = 1);
 
+require_once dirname(__DIR__) . '/NoDataException.php';
+
 final class Result {
-    public $questions = [];
+    public array $questions = [];
 
-    public $version = 0;
+    public int $version = 0;
 
-    public $result = 0;
+    public int $result = 0;
 
-    public $resultText = '';
+    public string $resultText = '';
 
-    public $language = '';
+    public string $language = '';
 
-    public $date = '';
+    public string $date = '';
 
-    public $from = '';
+    public string $from = '';
 
-    public $fromId = '';
+    public string $fromId = '';
 
     public function __construct(array $questions, string $resultText, int $version, int $result, string $lang, string $textFrom, string $fromId) {
         if (empty($questions) || $resultText === '') {
-            throw new NoDataException();
+            throw new NoAnalyticDataException();
         }
 
         $dateTime = new DateTime();

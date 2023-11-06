@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 class UriCreator {
-    private $server;
+    private array $server;
 
     public function __construct(array $server) {
         $this->server = $server;
@@ -19,7 +19,7 @@ class UriCreator {
         $uri .= '://' . $this->server['HTTP_HOST'];
 
         if ($this->server['REQUEST_URI'] !== $this->server['SCRIPT_NAME']) {
-            $uri .= $this->server['REQUEST_URI'];
+           $uri .= $this->server['REQUEST_URI'];
         }
 
         $uri = str_replace($this->server['SCRIPT_NAME'], '', $uri);

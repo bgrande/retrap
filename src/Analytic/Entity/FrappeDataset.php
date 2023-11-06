@@ -5,11 +5,11 @@ declare(strict_types = 1);
 require_once dirname(__DIR__) . '/NoAnalyticDataException.php';
 
 final class FrappeDataset {
-    public $name = '';
+    public string $name = '';
 
-    public $type = '';
+    public string $type = '';
 
-    public $values = [];
+    public array $values = [];
 
     public function __construct(string $name, string $type, array $values) {
         if (empty($values) || $name === '') {

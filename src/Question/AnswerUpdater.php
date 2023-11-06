@@ -5,9 +5,9 @@ declare(strict_types = 1);
 class AnswerUpdater {
     private const ANSWER_Q_KEY = 'answer-q-';
 
-    private $questions;
+    private \stdClass $questions;
 
-    private $objectAnswers;
+    private \stdClass $objectAnswers;
 
     public function __construct(\stdClass $questions, \stdClass $objectAnswers) {
         $this->questions = $questions;
