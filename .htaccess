@@ -1254,5 +1254,9 @@ FileETag None
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(xing|linkedin|facebook)$ /index.html?from=$1 [L]
 
-    RewriteRule ^(.*\.dist)$ /404.html [R=301]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(time|month)$ /time.html [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(satisfaction)$ /satisfaction.html [L]
 </IfModule>
